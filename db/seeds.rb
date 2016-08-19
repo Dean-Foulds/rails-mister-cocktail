@@ -1,3 +1,6 @@
+require 'json'
+require 'open-uri'
+
 Cocktail.destroy_all
 Ingredient.destroy_all
 
@@ -67,8 +70,14 @@ cocktails = [
   }
 ]
 
-ingredients = %w(lemon ice mint leaves redbull jagermeister sugar tonic gin rhum)
-ingredients.each { |ingredient| Ingredient.create(name: ingredient) }
+
+url = 'http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+ingredient_serialized = open(url).read
+ingredients = JSON.parse(ingredient_serialized)
+ingredients["drinks"].each do |i|
+  value = i["strIngredient1"]
+  Ingredient.create(name: value)
+end
 
 
 cocktails.each { |cocktail| Cocktail.create(cocktail) }

@@ -13,6 +13,7 @@ class DosesController < ApplicationController
   end
 
   def destroy
+
   end
 
   private
