@@ -1,0 +1,13 @@
+rails new wagon_demo -T -- database=postgresql
+rails db create
+add gem figaro
+bundle install
+add cloudinary yml file
+
+
+adding picture files to model
+
+use carrierwave gem
+rails g scaffold Product name description:text
+rails db:migrate
+rails g uploader Photo

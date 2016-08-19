@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-3">
+      <h1><%= @cocktail.name %></h1>
+      <%= link_to "Back", cocktails_path, class: "btn btn-danger" %>
+
+      <%= simple_form_for [@cocktail, @dose] do |f| %>
+        <%= f.input :description, placeholder: "2 cups" %>
+        <%= f.input :ingredient_id, collection: Ingredient.all, prompt: "Select" %>
+        <%= f.submit "Add dose", class: "btn btn-danger" %>
+      <% end %>
+      <ul>
+        <% @cocktail.doses.each do |d| %>
+          <li><%= d.description %> <%= d.ingredient.name%></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
