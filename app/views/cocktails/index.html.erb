@@ -9,10 +9,9 @@
     <% @cocktail.each do |cock| %>
       <div class="col-xs-12 col-sm-3">
         <div class="card">
-          <%= link_to cock.name, cocktail_path(cock.id) %></li>
         </div>
+          <%= render "card", cocktail: cock %>
       </div>
     <% end %>
-
   </div>
 </div>

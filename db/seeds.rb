@@ -75,8 +75,7 @@ url = 'http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 ingredient_serialized = open(url).read
 ingredients = JSON.parse(ingredient_serialized)
 ingredients["drinks"].each do |i|
-  value = i["strIngredient1"]
-  Ingredient.create(name: value)
+  Ingredient.create(name: i["strIngredient1"]
 end
 
 
