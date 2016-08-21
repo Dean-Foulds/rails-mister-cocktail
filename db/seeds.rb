@@ -3,6 +3,7 @@ require 'open-uri'
 
 Cocktail.destroy_all
 Ingredient.destroy_all
+# Picture.destroy_all
 
 cocktails = [
   {
@@ -75,8 +76,18 @@ url = 'http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 ingredient_serialized = open(url).read
 ingredients = JSON.parse(ingredient_serialized)
 ingredients["drinks"].each do |i|
-  Ingredient.create(name: i["strIngredient1"]
+  Ingredient.create(name: i["strIngredient1"])
 end
 
+# url = 'http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+# ingredient_serialized = open(url).read
+# ingredients = JSON.parse(ingredient_serialized)
+# ingredients["drinks"].each do |i|
+#   Picture.create(picture: i["strDrinkThumb"])
+# end
+
+# add column to table
+# add picture to this seed the api from http://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
+# strDrinkThumb
 
 cocktails.each { |cocktail| Cocktail.create(cocktail) }
