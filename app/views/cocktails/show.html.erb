@@ -8,7 +8,7 @@
         <%= f.input :ingredient_id, collection: Ingredient.all, prompt: "Select" %>
         <%= f.submit "Add dose", class: "btn btn-danger" %>
       <% end %>
-       <h1>Recipie</h1>
+      <h1>Recipe</h1>
       <ul>
         <% @cocktail.doses.each do |d| %>
           <li>
